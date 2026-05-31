@@ -1,0 +1,12 @@
+---
+type Props = { title: string; items: readonly (string | readonly [string, string])[] };
+const { title, items } = Astro.props;
+---
+<section>
+  <h2>{title}</h2>
+  <div class="grid">
+    {items.map((item) => Array.isArray(item)
+      ? <article><strong>{item[0]}</strong><p>{item[1]}</p></article>
+      : <article>{item}</article>)}
+  </div>
+</section>

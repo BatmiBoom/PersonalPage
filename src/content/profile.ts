@@ -10,9 +10,11 @@ export const profile = {
     ["GitHub", "https://github.com/BatmiBoom"],
     ["LinkedIn", "https://www.linkedin.com/in/nstirnemann/"],
   ],
-  stats: [["36", "public repos"], ["5", "followers"], ["2019", "on GitHub"], ["BrainHi", "current company"]],
+  stats: [["36", "public repos"], ["8+", "languages"], ["2019", "on GitHub"], ["BrainHi", "current company"]],
   nav: [["Work", "#work"], ["Projects", "#projects"], ["Principles", "#principles"], ["Contact", "#contact"]],
   work: [["BrainHi", "Software Engineer"], ["Open source", "Developer tools, configs, games, and learning projects"], ["LinkedIn", "La Plata profile with BrainHi, previous experience, and education listed"]],
+  stack: ["Go", "Lua", "Python", "Astro", "Rust", "D", "GDScript", "Shell"],
+  terminal: ["nvim / ghostty / wezterm configs", "Go servers, crawlers, CLIs", "Godot and Love2D game experiments", "notes on infra, SQL, AWS, algorithms"],
   projects: [
     ["PersonalPage", "Astro personal site with GitHub Pages deployment.", "Astro", "https://github.com/BatmiBoom/PersonalPage"],
     ["AndroidGame", "Godot/Android game inspired by viral mobile game loops.", "Godot", "https://github.com/BatmiBoom/AndroidGame"],

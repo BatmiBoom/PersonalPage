@@ -2,7 +2,7 @@
 type Props = { title: string; items: readonly (string | readonly [string, string])[] };
 const { title, items } = Astro.props;
 ---
-<section>
+<section class="section" id={title.toLowerCase().replaceAll(" ", "-")}>
   <h2>{title}</h2>
   <div class="grid">
     {items.map((item) => Array.isArray(item)

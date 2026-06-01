@@ -1,2 +1,5 @@
-import { defineConfig } from "astro/config";
-export default defineConfig({ site: "https://batmiboom.github.io/PersonalPage/" });
+// @ts-check
+import { defineConfig } from 'astro/config';
+
+// https://astro.build/config
+export default defineConfig({});

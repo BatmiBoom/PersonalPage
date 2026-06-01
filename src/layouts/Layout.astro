@@ -1,0 +1,29 @@
+---
+import Navbar from '../components/Navbar.astro'
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+    <meta name="author" conten="Nicolas Stirnemann" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<title>BatmiBoom Page</title>
+	</head>
+	<body>
+    <Navbar links={[{section: "About Me", link: "/notfound"}, {section: "Contact", link: "/notfound"}]} />
+		<slot />
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+    background-color: black;
+	}
+</style>

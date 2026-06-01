@@ -1,0 +1,100 @@
+---
+interface Props {
+  links: {section: string; link: string}[];
+}
+
+const { links } = Astro.props;
+---
+
+<nav class="navbar">
+  <span>BatmiBoom</span>
+  {links.map(({section, link}) => <a href={link}>{section}</a>)}
+</nav>
+
+<style>
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1rem clamp(1rem, 4vw, 4rem);
+    background:
+      linear-gradient(90deg, rgba(0, 255, 255, 0.12), transparent 32%),
+      linear-gradient(180deg, rgba(10, 10, 25, 0.96), rgba(5, 5, 12, 0.82));
+    border-bottom: 1px solid rgba(0, 255, 255, 0.55);
+    box-shadow:
+      0 0 22px rgba(0, 255, 255, 0.28),
+      inset 0 -1px 0 rgba(255, 0, 180, 0.45);
+    backdrop-filter: blur(14px);
+  }
+
+  .navbar a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    padding: 0.65rem 1rem;
+    color: #d9ffff;
+    font-family: "Orbitron", "Rajdhani", "Arial Narrow", Arial, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: rgba(7, 12, 24, 0.72);
+    border: 1px solid rgba(0, 255, 255, 0.62);
+    box-shadow:
+      0 0 12px rgba(0, 255, 255, 0.22),
+      inset 0 0 18px rgba(255, 0, 200, 0.08);
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    transition:
+      color 160ms ease,
+      border-color 160ms ease,
+      box-shadow 160ms ease,
+      transform 160ms ease;
+  }
+
+  .navbar a:hover,
+  .navbar a:focus-visible {
+    color: #ffffff;
+    border-color: rgba(255, 43, 214, 0.9);
+    box-shadow:
+      0 0 18px rgba(255, 43, 214, 0.42),
+      0 0 28px rgba(0, 255, 255, 0.24),
+      inset 0 0 22px rgba(0, 255, 255, 0.12);
+    outline: none;
+    transform: translateY(-1px);
+  }
+
+  .navbar a:hover::after,
+  .navbar a:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .navbar span {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    margin-right: auto;
+    color: white;
+  }
+
+  @media (max-width: 520px) {
+    .navbar {
+      justify-content: flex-end;
+      gap: 0.65rem;
+      padding: 0.85rem;
+    }
+
+    .navbar a {
+      flex: 1;
+      justify-content: center;
+      max-width: 11rem;
+      padding-inline: 0.75rem;
+      font-size: 0.76rem;
+    }
+  }
+</style>

@@ -1,0 +1,77 @@
+---
+interface Props {
+  links: {section: string; link: string}[];
+}
+
+const { links } = Astro.props
+---
+
+<footer class="footer">
+  <span>BatmiBoom</span>
+  <nav aria-label="Social links">
+    {links.map(({section, link}) => <a href={link}>{section}</a>)}
+  </nav>
+</footer>
+
+<style>
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem clamp(1rem, 2vw, 9rem);
+    background:
+      linear-gradient(90deg, rgba(255, 43, 214, 0.1), transparent 34%),
+      linear-gradient(180deg, rgba(5, 5, 12, 0.88), rgba(10, 10, 25, 0.96));
+    border-top: 1px solid rgba(0, 255, 255, 0.45);
+    box-shadow:
+      0 0 22px rgba(0, 255, 255, 0.18),
+      inset 0 1px 0 rgba(255, 0, 180, 0.32);
+  }
+
+  .footer span {
+    color: #ffffff;
+    font-family: "Orbitron", "Rajdhani", "Arial Narrow", Arial, sans-serif;
+    font-weight: 700;
+  }
+
+  .footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+
+  .footer a {
+    color: #d9ffff;
+    font-family: "Orbitron", "Rajdhani", "Arial Narrow", Arial, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+      color 160ms ease,
+      text-shadow 160ms ease;
+  }
+
+  .footer a:hover,
+  .footer a:focus-visible {
+    color: #ffffff;
+    text-shadow:
+      0 0 12px rgba(255, 43, 214, 0.6),
+      0 0 18px rgba(0, 255, 255, 0.42);
+    outline: none;
+  }
+
+  @media (max-width: 520px) {
+    .footer {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .footer nav {
+      justify-content: flex-start;
+    }
+  }
+</style>

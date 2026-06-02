@@ -1,29 +1,76 @@
 ---
 import Navbar from '../components/Navbar.astro'
+import Footer from '../components/Footer.astro'
+
+const links = [{section: "About Me", link: "/notfound"}, {section: "Contact", link: "/notfound"}]
+const socials = [{section: "Github", link: "https://github.com/BatmiBoom"}, {section: "LinkedIn", link: "https://linkedin.com/in/nstirnemann"}]
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-    <meta name="author" conten="Nicolas Stirnemann" />
+    <meta name="author" content="Nicolas Stirnemann" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<title>BatmiBoom Page</title>
+		<link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+		<title>BatmiBoom</title>
 	</head>
 	<body>
-    <Navbar links={[{section: "About Me", link: "/notfound"}, {section: "Contact", link: "/notfound"}]} />
-		<slot />
+    <div class="main">
+      <Navbar links={links} />
+      <section class="main__hero" aria-label="Intro">
+        <slot name="hero" />
+      </section>
+      <main class="main__content">
+        <slot />
+      </main>
+      <Footer links={socials} />
+    </div>
 	</body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
     background-color: black;
-	}
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  .main {
+    display: grid;
+    grid-template-rows: auto minmax(18rem, 45vh) 1fr auto;
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at top left, rgba(0, 255, 255, 0.12), transparent 28rem),
+      radial-gradient(circle at bottom right, rgba(255, 43, 214, 0.1), transparent 26rem),
+      #000;
+    color: white;
+  }
+
+  .main__hero {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .content-row {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: clamp(1rem, 4vw, 4rem);
+  }
+
+  .main__hero {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .main__content {
+    padding-block: clamp(2rem, 5vw, 4rem);
+  }
 </style>

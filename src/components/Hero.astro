@@ -1,14 +1,50 @@
 ---
+
 ---
+
 <canvas class="maze_generator"></canvas>
-<section class="profile_photo"></section>
+<img
+  class="profile_photo"
+  src="/images/maze-generator.png"
+  alt="Procedurally generated maze"
+/>
+
+<script>
+  import { CanvasRenderer } from "../scripts/engine";
+
+  let draw = () => {
+    const canvas = document.querySelector<HTMLCanvasElement>(".maze_generator");
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) {
+      console.log("ERROR: Context not found");
+      return;
+    }
+
+    let renderer = new CanvasRenderer(canvas, ctx);
+
+    let animate = (time: number) => {
+      renderer.update(time);
+      renderer.draw();
+      requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
+  };
+
+  draw();
+</script>
 
 <style>
-  .maze_generator{
-    flex:2;
+  .maze_generator {
+    flex: 2;
+    min-width: 0;
     background-color: grey;
   }
-  .profile_photo{
-    flex:1;
+  .profile_photo {
+    flex: 1;
+    min-width: 0;
+    width: 33%;
+    height: 100%;
+    object-fit: contain;
   }
 </style>
